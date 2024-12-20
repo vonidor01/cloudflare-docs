@@ -1,6 +1,7 @@
 import { z } from "astro:schema";
 import { getCollection } from "astro:content";
 import { type CollectionEntry } from "astro:content";
+import { readFile } from "fs/promises";
 
 export async function getChangelogs(opts?: {
 	filter?: Parameters<typeof getCollection<"changelogs">>[1];
@@ -60,8 +61,21 @@ export async function getChangelogs(opts?: {
 export async function getWranglerChangelog(): Promise<
 	CollectionEntry<"changelogs">
 > {
+	let authHeaders = {};
+
+	readFile("assets/secrets/github_tokens.txt", { encoding: "utf8" })
+		.then((data) => {
+			authHeaders = { Authorization: `Bearer ${data.trim()}` };
+		})
+		.catch((_) => {
+			// console.log(
+			// 	"[GetWranglerChangelog] Info: No GitHub token found.",
+			// );
+		});
+
 	const response = await fetch(
 		"https://api.github.com/repos/cloudflare/workers-sdk/releases",
+		{ headers: authHeaders },
 	);
 
 	if (!response.ok) {
