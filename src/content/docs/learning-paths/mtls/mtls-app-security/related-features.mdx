@@ -39,7 +39,7 @@ There are multiple ways to [forward a client certificate](/ssl/client-certificat
 
 If you already have mTLS implemented, client certificates are already installed on devices, and therefore you would like to use your own Certificate Authority (CA), this is possible by [bringing your own CA for mTLS](/ssl/client-certificates/byo-ca/).
 
-Here you can use the [Replace Hostname Associations API endpoint](/api/operations/client-certificate-for-a-zone-put-hostname-associations) to enable mTLS in each hostname that should use the CA for mTLS validation, essentially associating your CAs specific with hostnames.
+Here you can use the [Replace Hostname Associations API endpoint](/api/resources/certificate_authorities/subresources/hostname_associations/methods/update/) to enable mTLS in each hostname that should use the CA for mTLS validation, essentially associating your CAs specific with hostnames.
 
 :::note
 Each Enterprise account can upload up to five CAs, though this can be increased. Contact your account team if you require more.
@@ -49,7 +49,7 @@ Each Enterprise account can upload up to five CAs, though this can be increased.
 
 There are different ways to safely and securely deploy Client Certificates across devices. 
 
-Some of the most used methods are [embedding](/ssl/client-certificates/configure-your-mobile-app-or-iot-device/#step-3--embed-the-client-certificate-in-your-mobile-app) the Client Certificate into an application and allowing user devices to download and install that app, or use mobile device management (MDM) to distribute certificates across devices, or to allow user devices to directly download and install the Client Certificate into a device's Certificate Store.
+Some of the most used methods are [embedding](/ssl/client-certificates/configure-your-mobile-app-or-iot-device/#3-embed-the-client-certificate-in-your-mobile-app) the Client Certificate into an application and allowing user devices to download and install that app, or use mobile device management (MDM) to distribute certificates across devices, or to allow user devices to directly download and install the Client Certificate into a device's Certificate Store.
 
 Issuing a certificate is an important step, so if possible, perform thorough client verification.
 
