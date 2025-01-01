@@ -2287,6 +2287,10 @@ The minimum required Wrangler version to use this command is 3.66.0.
   - Leave the path blank to use the default option, e.g. `npx wrangler types --x-include-runtime`
   - A custom path must be relative to the project root, e.g. `./my-runtime-types.d.ts`
   - A custom path must have a `d.ts` extension.
+- `--loose-vars` <Type text="boolean" /> <MetaInfo text="optional (default: false)" />
+  - Flag used to generate "loose"/generic types instead of literal and union types for variables (e.g. `myEnv: string` instead of `myEnv: 'my env variable'`)
+  - Useful when environment variables can often change (especially with multiple environments involved)
+
 
 <Render file="wrangler-commands/global-flags" product="workers" />
 
