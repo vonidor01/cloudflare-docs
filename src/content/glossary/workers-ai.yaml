@@ -1,0 +1,33 @@
+---
+productName: Workers AI
+entries:
+  - term: Workers AI
+    general_definition: |-
+      [Workers AI](https://developers.cloudflare.com/workers-ai/) is a Cloudflare service that enables running machine learning models on Cloudflare's global network, utilizing serverless GPUs. It allows developers to integrate AI capabilities into their applications using Workers, Pages, or via the Cloudflare API.
+
+  - term: Serverless GPUs
+    general_definition: |-
+      [Serverless GPUs](https://blog.cloudflare.com/workers-ai/) are Graphics Processing Units provided by Cloudflare in a serverless environment, enabling scalable and efficient execution of machine learning models without the need for managing underlying hardware.
+
+  - term: Model Binding
+    general_definition: |-
+      [Model Binding](https://developers.cloudflare.com/ai-gateway/providers/workersai/) is a configuration in Workers that allows seamless integration with machine learning models deployed via Workers AI, enabling developers to invoke AI models within their applications easily.
+
+  - term: Vectorize
+    general_definition: |-
+      [Vectorize](https://developers.cloudflare.com/workers-ai/) is Cloudflare's vector database service that integrates with Workers AI to perform tasks such as semantic search, recommendations, and anomaly detection by managing and querying vector embeddings.
+
+  - term: AI Gateway
+    general_definition: |-
+      [AI Gateway](https://developers.cloudflare.com/ai-gateway/providers/workersai/) is a Cloudflare service that provides analytics, caching, and security features for AI applications, facilitating efficient and secure API requests to AI models, including those deployed with Workers AI.
+
+  - term: LoRA Adapters
+    general_definition: |-
+      [LoRA Adapters](https://developers.cloudflare.com/workers-ai/) (Low-Rank Adaptation adapters) are used in machine learning to fine-tune models efficiently by adjusting a small number of parameters, allowing for customization of AI models in Workers AI.
+
+  - term: Function Calling
+    general_definition: |-
+      [Function Calling](https://developers.cloudflare.com/workers-ai/function-calling/) enables people to take Large Language Models (LLMs) and use the model response to execute functions or interact with external APIs.
+  - term: OpenAI-Compatible API Endpoints
+    general_definition: |-
+      [OpenAI-Compatible API Endpoints](https://developers.cloudflare.com/workers-ai/) are API endpoints provided by Workers AI that are compatible with OpenAI's API specifications, allowing developers to integrate existing OpenAI-based applications with Workers AI seamlessly.
