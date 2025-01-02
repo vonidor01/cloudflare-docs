@@ -1,5 +1,5 @@
 ---
-inputParameters: editWord;;editProduct;;cloudflareName
+inputParameters: editWord;;cloudflareName
 ---
 
 import { Markdown } from "~/components";
@@ -65,10 +65,10 @@ import { Markdown } from "~/components";
 | Cloudflare One Connectors {props.one}                             | Grants write access to Cloudflare One Connectors                                                                                                         |
 | Cloudflare One Networks Read                                      | Grants read access to Cloudflare One Networks                                                                                                            |
 | Cloudflare One Networks {props.one}                               | Grants write access to Cloudflare One Networks                                                                                                           |
-| {props.three} Pages Read                                          | Grants access to view [Cloudflare Pages](/pages/) projects.                                                                                              |
-| {props.three} Pages {props.one}                                   | Grants access to create, edit and delete [Cloudflare Pages](/pages/) projects.                                                                           |
-| {props.two} Tunnel Read                                           | Grants access to view [Cloudflare Tunnels](/cloudflare-one/connections/connect-networks/).                                                               |
-| {props.two} Tunnel {props.one}                                    | Grants access to create and delete [Cloudflare Tunnels](/cloudflare-one/connections/connect-networks/).                                                  |
+| {props.two} Pages Read                                          | Grants access to view [Cloudflare Pages](/pages/) projects.                                                                                              |
+| {props.two} Pages {props.one}                                   | Grants access to create, edit and delete [Cloudflare Pages](/pages/) projects.                                                                           |
+| Cloudflare Tunnel Read                                           | Grants access to view [Cloudflare Tunnels](/cloudflare-one/connections/connect-networks/).                                                               |
+| Cloudflare Tunnel {props.one}                                    | Grants access to create and delete [Cloudflare Tunnels](/cloudflare-one/connections/connect-networks/).                                                  |
 | Cloudforce One Read                                               | Grants read access to Cloudforce One.                                                                                                                    |
 | Cloudforce One {props.one}                                        | Grants write access to Cloudforce One.                                                                                                                   |
 | Cloud Email Security Read                                         | Grants read access to [Cloud Email Security](/email-security/).                                                                                          |
@@ -146,6 +146,6 @@ import { Markdown } from "~/components";
 | Zero Trust Read                                                   | Grants read access to [Cloudflare Zero Trust](/cloudflare-one/).                                                                                         |
 | Zero Trust Report                                                 | Grants reporting access to [Cloudflare Zero Trust](/cloudflare-one/).                                                                                    |
 | Zero Trust {props.one}                                            | Grants write access to [Cloudflare Zero Trust](/cloudflare-one/).                                                                                        |
-| Zero Trust PII Read                                               | Grants read access to [Cloudflare Zero Trust](/cloudflare-one/) PII.                                                                                     |
-| Zero Trust PII {props.one}                                        | Grants write access to [Cloudflare Zero Trust](/cloudflare-one/) PII.                                                                                    |
-| Zero Trust Seats {props.one}                                      | Grants write access to the number of [Zero Trust Seats](/cloudflare-one/identity/users/seat-management/) your organization can use (and be billed for).  |
+| Zero Trust: PII Read                                               | Grants read access to [Cloudflare Zero Trust](/cloudflare-one/) PII.                                                                                     |
+| Zero Trust: PII {props.one}                                        | Grants write access to [Cloudflare Zero Trust](/cloudflare-one/) PII.                                                                                    |
+| Zero Trust: Seats {props.one}                                      | Grants write access to the number of [Zero Trust Seats](/cloudflare-one/identity/users/seat-management/) your organization can use (and be billed for).  |
