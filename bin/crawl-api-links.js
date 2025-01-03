@@ -68,8 +68,12 @@ async function checkLinks() {
 				});
 				visitedLinks.push(pageLink);
 
-				if (response.status() === 404) {
-					brokenLinks.push(pageLink);
+				if (response) {
+					if (response.status() === 404) {
+						brokenLinks.push(pageLink);
+					}
+				} else {
+					console.log("WARNING: Didn't receive a response... skipping.");
 				}
 			}
 		}
