@@ -5,3 +5,16 @@ sidebar:
   order: 2
   label: Set up
 ---
+
+## Non-SNI support
+
+Define a hostname to be used by default whenever Cloudflare receives a TLS handshake without [Server Name Indication (SNI)](/ssl/reference/browser-compatibility/#non-sni-support). For further context, refer to [browser compatibility](/ssl/reference/browser-compatibility/#non-sni-support).
+
+:::note
+Setting up a default SNI is currently only supported via API.
+:::
+
+1. If you have not already, create an address map. [API endpoint TBC](/api/resources/addressing/subresources/address_maps/methods/create/)
+2. Take note of the address map `id`. If needed, you can use the [List Address Maps](/api/resources/addressing/subresources/address_maps/methods/list/) endpoint to retrieve it.
+3. Make sure you add the desired IP(s) to the address map. Cloudflare will respond with the default SNI on those IPs. [API endpoint TBC](/api/resources/addressing/subresources/address_maps/subresources/ips/methods/update/)
+4. Configure the `default_sni` value on the address map created in step 1. [API endpoint TBC](/api/resources/addressing/subresources/address_maps/methods/edit/). The default SNI can be any valid domain or subdomain owned by your account.
