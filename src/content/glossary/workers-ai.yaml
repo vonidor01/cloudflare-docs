@@ -7,27 +7,56 @@ entries:
 
   - term: Serverless GPUs
     general_definition: |-
-      [Serverless GPUs](https://blog.cloudflare.com/workers-ai/) are Graphics Processing Units provided by Cloudflare in a serverless environment, enabling scalable and efficient execution of machine learning models without the need for managing underlying hardware.
+      [Serverless GPUs](https://developers.cloudflare.com/workers-ai/) are Graphics Processing Units provided by Cloudflare in a serverless environment, enabling scalable and efficient execution of machine learning models without the need for managing underlying hardware.
 
-  - term: Model Binding
+  - term: Wrangler CLI
     general_definition: |-
-      [Model Binding](https://developers.cloudflare.com/ai-gateway/providers/workersai/) is a configuration in Workers that allows seamless integration with machine learning models deployed via Workers AI, enabling developers to invoke AI models within their applications easily.
+      [Wrangler CLI](https://developers.cloudflare.com/workers-ai/get-started/workers-wrangler/) is a command-line tool for building and deploying Cloudflare Workers, facilitating the integration of AI models into applications.
 
-  - term: Vectorize
+  - term: REST API
     general_definition: |-
-      [Vectorize](https://developers.cloudflare.com/workers-ai/) is Cloudflare's vector database service that integrates with Workers AI to perform tasks such as semantic search, recommendations, and anomaly detection by managing and querying vector embeddings.
+      [REST API](https://developers.cloudflare.com/workers-ai/get-started/rest-api/) is an application programming interface that allows developers to interact with Workers AI services over HTTP, enabling model management and inference requests.
 
-  - term: AI Gateway
+  - term: API Tokens
     general_definition: |-
-      [AI Gateway](https://developers.cloudflare.com/ai-gateway/providers/workersai/) is a Cloudflare service that provides analytics, caching, and security features for AI applications, facilitating efficient and secure API requests to AI models, including those deployed with Workers AI.
+      [API Tokens](https://developers.cloudflare.com/workers-ai/get-started/rest-api/) are authentication credentials used to securely access and manage Workers AI resources via the REST API.
+
+  - term: Cloudflare Dashboard
+    general_definition: |-
+      [Cloudflare Dashboard](https://developers.cloudflare.com/workers-ai/get-started/dashboard/) is a web-based interface that allows users to manage Workers AI services, including model deployment and monitoring.
+
+  - term: Prompt Engineering
+    general_definition: |-
+      [Prompt Engineering](https://developers.cloudflare.com/workers-ai/guides/prompting/) is the practice of designing and refining input prompts to effectively elicit desired responses from AI models.
+
+  - term: Prompt Templates
+    general_definition: |-
+      [Prompt Templates](https://developers.cloudflare.com/workers-ai/guides/prompting/) are predefined structures that guide the input provided to AI models, enhancing consistency and effectiveness in responses.
+
+  - term: Worker Bindings
+    general_definition: |-
+      [Worker Bindings](https://developers.cloudflare.com/workers-ai/configuration/bindings/) are configurations that connect Workers scripts to external resources, such as AI models, enabling seamless integration and functionality.
+
+  - term: Environment Variables
+    general_definition: |-
+      [Environment Variables](https://developers.cloudflare.com/workers-ai/configuration/bindings/) are dynamic values that can be used within Workers to manage configuration settings, including those related to AI integrations.
+
+  - term: Model Catalog
+    general_definition: |-
+      [Model Catalog](https://developers.cloudflare.com/workers-ai/models/) is a curated collection of AI models available within Workers AI, providing developers with a variety of pre-trained models for different tasks.
+
+  - term: Fine-Tuning
+    general_definition: |-
+      [Fine-Tuning](https://developers.cloudflare.com/workers-ai/fine-tunes/) is a general term for modifying an AI model by continuing to train it with additional data.
 
   - term: LoRA Adapters
     general_definition: |-
-      [LoRA Adapters](https://developers.cloudflare.com/workers-ai/) (Low-Rank Adaptation adapters) are used in machine learning to fine-tune models efficiently by adjusting a small number of parameters, allowing for customization of AI models in Workers AI.
+      [LoRA Adapters](https://developers.cloudflare.com/workers-ai/fine-tunes/loras/) (Low-Rank Adaptation adapters) are used in machine learning to fine-tune models efficiently by adjusting a small number of parameters, allowing for customization of AI models in Workers AI.
+
+  - term: Public LoRA Adapters
+    general_definition: |-
+      [Public LoRA Adapters](https://developers.cloudflare.com/workers-ai/fine-tunes/public-loras/) are pre-trained Low-Rank Adaptation adapters available for public use, enabling developers to fine-tune AI models without extensive computational resources.
 
   - term: Function Calling
     general_definition: |-
-      [Function Calling](https://developers.cloudflare.com/workers-ai/function-calling/) enables people to take Large Language Models (LLMs) and use the model response to execute functions or interact with external APIs.
-  - term: OpenAI-Compatible API Endpoints
-    general_definition: |-
-      [OpenAI-Compatible API Endpoints](https://developers.cloudflare.com/workers-ai/) are API endpoints provided by Workers AI that are compatible with OpenAI's API specifications, allowing developers to integrate existing OpenAI-based applications with Workers AI seamlessly.
+      [Function Calling](https://developers.cloudflare.com/workers-ai/function-calling/)enables people to take Large Language Models (LLMs) and use the model response to execute functions or interact with external APIs.
