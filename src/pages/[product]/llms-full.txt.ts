@@ -20,6 +20,12 @@ export async function getStaticPaths() {
 
 export const GET: APIRoute = async ({ props }) => {
 	const markdown = await getCollection("docs", (e) => {
+		if (
+			e.slug === "warp-client/legal/3rdparty" ||
+			e.slug === "magic-wan/legal/3rdparty"
+		)
+			return false;
+
 		return (
 			e.slug.startsWith(props.product.data.product.url.slice(1, -1)) && e.body
 		);

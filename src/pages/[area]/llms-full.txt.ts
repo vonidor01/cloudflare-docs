@@ -32,6 +32,12 @@ export const GET: APIRoute = async ({ params }) => {
 	const markdown = await getCollection("docs", (e) => {
 		if (!e.body) return false;
 
+		if (
+			e.slug === "warp-client/legal/3rdparty" ||
+			e.slug === "magic-wan/legal/3rdparty"
+		)
+			return false;
+
 		return products.some((p) =>
 			e.slug.startsWith(p.data.product.url.slice(1, -1)),
 		);
