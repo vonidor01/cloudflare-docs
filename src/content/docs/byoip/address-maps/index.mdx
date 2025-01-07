@@ -18,11 +18,17 @@ If you do not have BYOIP or static IPs and you want to use Address Maps, contact
 Both IPv4 and IPv6 addresses are supported.
 :::
 
+---
+
 ## How Address Maps works
 
 For zones using [Cloudflare's authoritative DNS](/dns/), Cloudflare typically responds to DNS queries for proxied hostnames with [anycast IPs](/fundamentals/concepts/cloudflare-ip-addresses/). However, if you [customize the IPs Cloudflare uses](/fundamentals/concepts/cloudflare-ip-addresses/#customize-cloudflare-ip-addresses) and use Address Maps, Cloudflare will respond with the IP address(es) on the address map.
 
 Address maps do not change [how Cloudflare reaches the configured origin](/fundamentals/concepts/how-cloudflare-works/#how-cloudflare-works-as-a-reverse-proxy). The IP addresses defined on the **DNS** > **Records** under your zone continue to instruct Cloudflare how to reach the origin.
+
+:::caution
+Depending on whether you use static IPs or BYOIP, the process to [create an address map](/byoip/address-maps/setup/#create-address-maps) is different.
+:::
 
 ### Static IPs or BYOIP
 
@@ -30,9 +36,7 @@ Leased static IPs allow you to use a set of specifically assigned Cloudflare IPs
 
 With BYOIP, you use your IPs by bringing an address space that you lease or own and creating an address map.
 
-:::caution
-Depending on whether you use static IPs or BYOIP, the process to [create an address map](/byoip/address-maps/setup/#create-address-maps) is different.
-:::
+---
 
 ## Immutable address maps
 

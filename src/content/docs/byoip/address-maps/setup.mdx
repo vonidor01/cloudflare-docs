@@ -10,7 +10,7 @@ Consider the sections below to learn how to set up address maps.
 
 ## Create address maps
 
-To avoid any errors if you have [static IPs](/byoip/concepts/static-ips/), Cloudflare creates an address map during the static IP onboarding process. This means you cannot create a new address map with your static IPs, you may only edit the Cloudflare-created map and add or edit your zones within the existing map.
+To avoid any errors if you have [static IPs](/byoip/concepts/static-ips/), Cloudflare creates an address map during the static IP onboarding process, meaning you cannot create a new address map with your static IPs. You may only edit the Cloudflare-created map and add or edit your zones within the existing map.
 
 If you are using BYOIP instead, refer to the following steps:
 
@@ -46,7 +46,7 @@ Define a hostname to be used by default whenever Cloudflare receives a TLS hands
 Setting up a default SNI is currently only supported via API.
 :::
 
-1. If you have not already, create an address map. [API endpoint TBC](/api/resources/addressing/subresources/address_maps/methods/create/)
-2. Take note of the address map `id`. If needed, you can use the [List Address Maps](/api/resources/addressing/subresources/address_maps/methods/list/) endpoint to retrieve it.
-3. Make sure you add the desired IP(s) to the address map. Cloudflare will respond with the default SNI on those IPs. [API endpoint TBC](/api/resources/addressing/subresources/address_maps/subresources/ips/methods/update/)
-4. Configure the `default_sni` value on the address map created in step 1. [API endpoint TBC](/api/resources/addressing/subresources/address_maps/methods/edit/). The default SNI can be any valid domain or subdomain owned by your account.
+1. If you have not already, create an address map. Refer to the [section above](#create-address-maps) or to the [Create Address Map](/api/resources/addressing/subresources/address_maps/methods/create/) API endpoint.
+2. Take note of the address map `id`. If needed, you can use the [List Address Maps](/api/resources/addressing/subresources/address_maps/methods/list/) endpoint to get it.
+3. Make sure you add the desired IPs to the address map. Cloudflare will respond with the default SNI on those IPs. Use the dashboard or refer to [Add An IP To An Address Map](/api/resources/addressing/subresources/address_maps/subresources/ips/methods/update/).
+4. Configure the `default_sni` value on the address map created in step 1. Refer to the [Update Address Map](/api/resources/addressing/subresources/address_maps/methods/edit/) API endpoint for details. The default SNI can be any valid domain or subdomain owned by your account.
