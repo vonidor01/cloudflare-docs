@@ -6,6 +6,38 @@ sidebar:
   label: Set up
 ---
 
+Consider the sections below to learn how to set up address maps.
+
+## Create address maps
+
+To avoid any errors if you have [static IPs](/byoip/address-maps/#static-ips-or-byoip), Cloudflare creates an address map during the static IP onboarding process. This means you cannot create a new address map with your static IPs, you may only edit the Cloudflare-created map and add or edit your zones within the existing map.
+
+If you are using BYOIP instead, refer to the following steps:
+
+1. Log in to the [Cloudflare dashboard](https://dash.cloudflare.com/) and select your account.
+2. Go to **IP Addresses** > **Address Maps**.
+3. Select **Create an address map**.
+4. Choose the scope of the address map.
+5. Add the zones and IP addresses that you want to map.
+6. Name your address map.
+7. Review the information and select **Save and Deploy**.
+
+:::note
+Creating an address map does not automatically change DNS configuration. DNS responses only begin to change when a zone or account is added to a map. Additionally, address maps that are not yet enabled will not take effect in DNS responses.
+:::
+
+## Manage address maps
+
+1. Log in to the [Cloudflare dashboard](https://dash.cloudflare.com/) and select your account.
+2. Go to **IP Addresses** > **Address Maps**.
+3. Go to your address map and select **Review**.
+4. Edit your address map.
+5. Review the information and select **Save**.
+
+:::note
+You can also enable, disable, and delete address maps. This will likely change the IP addresses used for your zones.
+:::
+
 ## Non-SNI support
 
 Define a hostname to be used by default whenever Cloudflare receives a TLS handshake without [Server Name Indication (SNI)](/ssl/reference/browser-compatibility/#non-sni-support). For further context, refer to [browser compatibility](/ssl/reference/browser-compatibility/#non-sni-support).
