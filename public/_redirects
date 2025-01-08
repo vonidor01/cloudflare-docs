@@ -1461,6 +1461,7 @@
 /workers/errors/script-will-never-generate-a-response/ /workers/observability/errors/#the-script-will-never-generate-a-response-errors 301
 /workers/errors/illegal-invocation/ /workers/observability/errors/#illegal-invocation-errors 301
 /workers/learning/metrics-and-analytics/ /workers/observability/metrics-and-analytics/ 301
+/workers/learning/getting-started/ /workers/get-started/quickstarts/ 301
 /workers/learning/integrations/databases/ /workers/databases/connecting-to-databases/ 301
 /workers/learning/how-routing-works/ /workers/platform/routing/ 301
 /workers/learning/using-services/ /workers/ 301
