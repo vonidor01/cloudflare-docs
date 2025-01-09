@@ -11,14 +11,14 @@ To set up MX Inline:
 2. Select **Email Security**.
 3. Select **Monitoring**. If you are a first time user, select **Contact sales**. Otherwise, select **Set up**.
 4. Select **MX/Inline**.
-5. To start the MX/Inline configuration, you will have to complete the prerequisite setup on your email provider's platform. Once you have completed this step, select **I confirm that I have completed all the necessary requirements**. Then, select **Start configuration**.
+5. To start the MX/Inline configuration, you will have to completed the prerequisite setup on your email provider's platform. Once you have completed this step, select **I confirm that I have completed all the necessary requirements**. Then, select **Start configuration**.
 
 If you have verified zones on Cloudflare, continue with the following steps:
 
 1. **Connect a domain**: Select your domain. Then, select **Continue**.
 2. **Select position**: This step allows you to choose where Email Security fits into your mail flow and configure position settings:
     - **Select position**: Choose between:
-        - **Sit first (hop count = 1)**: Email Security sits at the first hop.There are not any other email scanners or services between the Internet and Cloudflare.
+        - **Sit first (hop count = 1)**: Email Security sits at the first hop. There are no other email scanners or services between the Internet and Cloudflare.
         - **Sit in the middle (hop count > 1)**: Email Security sits in the middle of your email processing. There are other email scanners or email services in between.
     - **Position settings**: Refine how Email Security receives and forwards emails:
         - **Forwarding address**: This is your mail flow next hope after Email Security. This value is auto-filled, but you can still change it.
@@ -28,7 +28,7 @@ If you have verified zones on Cloudflare, continue with the following steps:
     - Select **Continue**.
 3. (Optional) **Configure quarantine policy**: Select dispositions to automatically prevent certain types incoming messages from reaching a recipient's inbox. 
 4. (Optional ) **Update MX records**: 
-    - Email Security can automatically update MX records for domains that proxy traffic through Cloudflare. Under Your mail processing location, select one of the following:
+    - Email Security can automatically update MX records for domains that proxy traffic through Cloudflare. Under your mail processing location, select one of the following:
         - Global (Recommended)
         - US
         - EU
