@@ -14,19 +14,21 @@ export const getStaticPaths = async () => {
 	const [schema] = await getCollection("graphql-api");
 	const groups = ["account", "zone", "organization"];
 
-	return groups.flatMap((el) => {
+	return groups.flatMap((group) => {
 		const query = schema.data.types.find(
-			(type: { name: string }) => type.name === el,
+			(type: { name: string }) => type.name === group,
 		);
 		return (
-			query?.fields.map((field: Field) => {
-				return {
-					params: {
-						name: `${el}.${field.name}`,
-					},
-					props: { query: field },
-				};
-			}) || []
+			query?.fields
+				.filter((el) => el.name !== `${group}Tag`)
+				.map((field: Field) => {
+					return {
+						params: {
+							name: `${group}.${field.name}`,
+						},
+						props: { query: field },
+					};
+				}) || []
 		);
 	});
 };
