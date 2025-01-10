@@ -2,6 +2,8 @@
 import { getCollection } from "astro:content";
 import { GraphiQLClient } from "~/components/GraphiQLClient";
 const [schema] = await getCollection("graphql-api");
+import "graphiql/graphiql.css";
+import "~/tailwind.css";
 ---
 
 <GraphiQLClient
