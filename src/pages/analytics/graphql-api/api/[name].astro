@@ -5,6 +5,7 @@ import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
 import SchemaViewer from "~/components/models/SchemaViewer.astro";
 import { Code } from "~/components";
 import { LinkButton } from "~/components";
+import { CollapsibleSection } from "~/components/CollapsibleSection";
 import {
 	GraphQLToJSONSchemaBuilder,
 	type Field,
@@ -59,7 +60,10 @@ const typescriptInput = await compile(
 	{ additionalProperties: false, bannerComment: "" },
 );
 
-const [group, queryName] = name.split(".");
+const [group, queryName] = name.split(".") as [
+	"account" | "zone" | "organization",
+	string,
+];
 const gqlQuery = graphQLJSONSchemaToExample(
 	`${group}s`,
 	queryName,
@@ -74,19 +78,26 @@ const gqlQuery = graphQLJSONSchemaToExample(
 >
 	<h2>{name.split(".").join(" ")}</h2>
 	<p>{query.description}</p>
-	<h3>Example</h3>
-	<LinkButton href={`/analytics/graphql-api/graphiql?query=${btoa(gqlQuery)}`}
-		>Open in GraphiQL</LinkButton
-	>
-	<Code code={gqlQuery} lang="graphql" />
-	<h3 id="Parameters">Parameters</h3>
-	<SchemaViewer schema={completeInputType} />
-	<h4>Typescript definition</h4>
-	<Code code={typescriptInput} lang="typescript" />
-	<h3 id="Output">Output</h3>
-	<SchemaViewer schema={completeResponseType} />
-	<h4>Typescript definition</h4>
-	<Code code={typescriptOutput} lang="typescript" />
+	<div class="mt-4">
+		<CollapsibleSection client:load title="Example GraphQL Query" defaultOpen>
+			<LinkButton
+				href={`/analytics/graphql-api/graphiql?query=${btoa(gqlQuery)}`}
+				>Open in GraphiQL</LinkButton
+			>
+			<Code code={gqlQuery} lang="graphql" />
+		</CollapsibleSection>
+
+		<CollapsibleSection client:load title="Parameters">
+			<SchemaViewer schema={completeInputType} />
+			<h4>Typescript definition</h4>
+			<Code code={typescriptInput} lang="typescript" />
+		</CollapsibleSection>
+		<CollapsibleSection client:load title="Output">
+			<SchemaViewer schema={completeResponseType} />
+			<h4>Typescript definition</h4>
+			<Code code={typescriptOutput} lang="typescript" />
+		</CollapsibleSection>
+	</div>
 </StarlightPage>
 
 <style>

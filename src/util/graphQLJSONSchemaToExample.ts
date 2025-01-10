@@ -26,7 +26,6 @@ export function graphQLJSONSchemaToExample(
 	const outputSections = Object.keys(output.properties || {}).reduce(
 		(outputQuery, key) => {
 			const type = output.properties?.[key].type;
-			console.log(type);
 
 			let outputQueryType = "";
 			if (type === "object") {
