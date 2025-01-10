@@ -35,6 +35,12 @@ For any given hostname, Cloudflare uses the following order to determine which c
 
 4. **Certificate expiration**: If the hostname and certificate type are the same, Cloudflare deploys the certificate with the latest expiration date.
 
+:::note
+
+In this case, when the certificate with the closest expiration date is renewed, it will then become the one with the latest expiration date and get presented!
+
+:::
+
 :::caution
 
 
