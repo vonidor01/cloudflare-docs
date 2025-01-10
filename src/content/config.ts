@@ -13,6 +13,7 @@ import {
 	videosSchema,
 	workersAiSchema,
 	changelogsNextSchema,
+	graphQLSchema,
 } from "~/schemas";
 
 const partialSchema = z.object({
@@ -77,5 +78,9 @@ export const collections = {
 	}),
 	"changelogs-next": defineCollection({
 		schema: changelogsNextSchema,
+	}),
+	"graphql-api": defineCollection({
+		schema: graphQLSchema,
+		type: "data",
 	}),
 };

@@ -1,0 +1,90 @@
+---
+import { getCollection } from "astro:content";
+import { compile, type JSONSchema } from "json-schema-to-typescript";
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+import SchemaViewer from "~/components/models/SchemaViewer.astro";
+import { Code } from "~/components";
+import {
+	GraphQLToJSONSchemaBuilder,
+	type Field,
+} from "~/util/graphQLToJsonSchema";
+import { graphQLJSONSchemaToExample } from "~/util/graphQLJSONSchemaToExample";
+
+export const getStaticPaths = async () => {
+	const [schema] = await getCollection("graphql-api");
+	const groups = ["account", "zone", "organization"];
+
+	return groups.flatMap((el) => {
+		const query = schema.data.types.find(
+			(type: { name: string }) => type.name === el,
+		);
+		return (
+			query?.fields.map((field: Field) => {
+				return {
+					params: {
+						name: `${el}.${field.name}`,
+					},
+					props: { query: field },
+				};
+			}) || []
+		);
+	});
+};
+
+const { name } = Astro.params;
+const { query } = Astro.props;
+const [schema] = await getCollection("graphql-api");
+
+const schemaBuilder = new GraphQLToJSONSchemaBuilder(schema.data);
+const completeInputType = schemaBuilder.buildCompleteInputType(
+	(query.args || []) as Field[],
+	"InputType",
+);
+const completeResponseType = schemaBuilder.buildCompleteResponseType(
+	query,
+	"ResponseType",
+);
+
+const typescriptOutput = await compile(
+	completeResponseType as JSONSchema,
+	"Response",
+	{ additionalProperties: false, bannerComment: "" },
+);
+const typescriptInput = await compile(
+	completeInputType as JSONSchema,
+	"Input",
+	{ additionalProperties: false, bannerComment: "" },
+);
+
+const [group, queryName] = name.split(".");
+const gqlQuery = graphQLJSONSchemaToExample(
+	`${group}s`,
+	queryName,
+	query.description,
+	completeInputType as JSONSchema,
+	completeResponseType as JSONSchema,
+);
+---
+
+<StarlightPage
+	frontmatter={{ title: "GraphQL API Schema", tableOfContents: false }}
+>
+	<h2>{name.split(".").join(" ")}</h2>
+	<p>{query.description}</p>
+	<h3>Example</h3>
+	<Code code={gqlQuery} lang="graphql" />
+	<h3 id="Parameters">Parameters</h3>
+	<SchemaViewer schema={completeInputType} />
+	<h4>Typescript definition</h4>
+	<Code code={typescriptInput} lang="typescript" />
+	<h3 id="Output">Output</h3>
+	<SchemaViewer schema={completeResponseType} />
+	<h4>Typescript definition</h4>
+	<Code code={typescriptOutput} lang="typescript" />
+</StarlightPage>
+
+<style>
+	:root {
+		--sl-content-width: 1350px !important;
+	}
+</style>

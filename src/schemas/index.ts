@@ -11,3 +11,4 @@ export * from "./pages-framework-presets";
 export * from "./partials";
 export * from "./videos";
 export * from "./workers-ai-models";
+export * from "./graphql-api";
