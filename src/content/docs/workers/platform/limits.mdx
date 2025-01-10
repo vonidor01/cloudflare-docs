@@ -148,7 +148,7 @@ Routes in fail closed mode will display a Cloudflare `1027` error page to visito
 
 ## Memory
 
-Each [isolate](/workers/reference/how-workers-works/#isolates) your Worker's code runs in can consume up to 128 MB of memory. This includes both memory used by the JavaScript heap, and memory explicitly allocated in [WebAssembly](/workers/runtime-apis/webassembly/). Note that this limit is per-isolate, not per-invocation of your Worker. A single isolate can handle many concurrent requests.
+Each [isolate](/workers/reference/how-workers-works/#isolates) of your Worker's code runs in can consume up to 128 MB of memory. This includes both memory used by the JavaScript heap, and memory explicitly allocated in [WebAssembly](/workers/runtime-apis/webassembly/). Note that this limit is per-isolate, not per-invocation of your Worker. A single isolate can handle many concurrent requests.
 
 When an isolate running your Worker exceeds 128 MB of memory, the Workers runtime handles this gracefully instead of failing immediately. It allows in-flight requests to complete while simultaneously creating a new isolate for your Worker for new requests. While this approach typically allows in-flight requests to complete, during periods of extremely high load, some incoming requests may be cancelled to maintain system stability.
 
