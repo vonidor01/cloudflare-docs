@@ -4,6 +4,7 @@ import { compile, type JSONSchema } from "json-schema-to-typescript";
 import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
 import SchemaViewer from "~/components/models/SchemaViewer.astro";
 import { Code } from "~/components";
+import { LinkButton } from "~/components";
 import {
 	GraphQLToJSONSchemaBuilder,
 	type Field,
@@ -74,6 +75,9 @@ const gqlQuery = graphQLJSONSchemaToExample(
 	<h2>{name.split(".").join(" ")}</h2>
 	<p>{query.description}</p>
 	<h3>Example</h3>
+	<LinkButton href={`/analytics/graphql-api/graphiql?query=${btoa(gqlQuery)}`}
+		>Open in GraphiQL</LinkButton
+	>
 	<Code code={gqlQuery} lang="graphql" />
 	<h3 id="Parameters">Parameters</h3>
 	<SchemaViewer schema={completeInputType} />

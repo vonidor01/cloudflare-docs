@@ -1,30 +1,40 @@
 import { createGraphiQLFetcher } from "@graphiql/toolkit";
 import GraphiQL from "graphiql";
 import "graphiql/graphiql.css";
-import { useState } from "react";
+import "~/tailwind.css";
+import { useEffect, useState } from "react";
+import { use } from "marked";
 
 const fetcher = createGraphiQLFetcher({
 	url: "https://api.cloudflare.com/client/v4/graphql",
 });
 
 export function GraphiQLClient({ schema }: { schema: any }) {
+	const [query, setQuery] = useState("");
+	useEffect(() => {
+		const search = window.location.search;
+		const params = new URLSearchParams(search);
+
+		setQuery(atob(params.get("query") || ""));
+	}, []);
+
 	const [authToken, setAuthToken] = useState("");
 	return (
 		<div className="flex h-screen flex-col">
-			<div className="flex items-center gap-4 bg-gray-100 p-4">
+			<div className="flex items-center">
 				<label
 					htmlFor="password"
 					className="text-sm/6 font-medium text-gray-900"
 				>
 					Auth Token:
 				</label>
-				<div className="mt-2">
+				<div>
 					<input
 						id="password"
 						name="password"
 						type="password"
 						onChange={(e) => setAuthToken(e.target.value)}
-						className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-orange-500 sm:text-sm/6"
+						className="w-full rounded-md border-2 border-gray-200 bg-white px-2 py-2 dark:border-gray-700 dark:bg-gray-800"
 					/>
 				</div>
 			</div>
@@ -32,6 +42,7 @@ export function GraphiQLClient({ schema }: { schema: any }) {
 				<GraphiQL
 					fetcher={fetcher}
 					schema={schema}
+					query={query}
 					headers={JSON.stringify({
 						authorization: `Bearer ${authToken}`,
 					})}

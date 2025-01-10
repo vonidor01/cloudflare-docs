@@ -1,20 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import { GraphiQLClient } from "~/components/GraphiQLClient";
-import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
-import type { StarlightPageProps } from "@astrojs/starlight/components/StarlightPage.astro";
-import Header from "~/components/changelog-next/Header.astro";
 const [schema] = await getCollection("graphql-api");
-
-const props = {
-	frontmatter: {
-		title: "GraphiQL",
-		tableOfContents: false,
-		template: "splash",
-	},
-	hideTitle: true,
-	hideBreadcrumbs: true,
-} as StarlightPageProps;
 ---
 
 <GraphiQLClient

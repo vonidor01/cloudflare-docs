@@ -4,7 +4,7 @@ function pick3(arr: unknown[]) {
 	return arr.slice(0, 3);
 }
 export function graphQLJSONSchemaToExample(
-	group: string,
+	group: "organizations" | "zones" | "accounts",
 	name: string,
 	description: string,
 	input: JSONSchema,
@@ -14,7 +14,14 @@ export function graphQLJSONSchemaToExample(
 		.split(" ")
 		.map((n: string) => n.charAt(0).toUpperCase() + String(n).slice(1))
 		.join("")
-		.replaceAll(".", "");
+		.replaceAll(".", "")
+		.replaceAll("-", "");
+
+	const groupMapping = {
+		accounts: "account",
+		zones: "zone",
+		organizations: "organization",
+	};
 
 	const outputSections = Object.keys(output.properties || {}).reduce(
 		(outputQuery, key) => {
@@ -54,9 +61,9 @@ export function graphQLJSONSchemaToExample(
 	);
 
 	const gqlQuery = `
-		query Get${queryName}($${group}Tag: string, $datetimeStart: string, $datetimeEnd: string) {
+		query Get${queryName}($${group}Tag: string!, $datetimeStart: Time, $datetimeEnd: Time) {
 				viewer {
-					${group}(filter: {${group}Tag: $${group}Tag}) {
+					${group}(filter: {${groupMapping[group]}Tag: $${group}Tag}) {
 						${name}(
 							limit: 100,
 							filter: {
